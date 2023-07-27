@@ -8,8 +8,8 @@ const roboto_flex = Roboto_Flex({
 })
 
 export const metadata: Metadata = {
-  title: 'Template',
-  description: 'Next.js Template',
+  title: 'Reminders',
+  description: 'Daily customized reminders!',
   themeColor: 'white'
 }
 
@@ -24,7 +24,7 @@ return (
       <body className={roboto_flex.className}>
         <div className="relative flex flex-col min-h-[calc(100dvh)]">
           <header className="w-full h-16 bg-white px-6 drop-shadow-md flex items-center">
-            <a className="text-xl text-gray-900 font-extrabold">Template</a>
+            <a className="text-xl text-gray-900 font-extrabold">Reminders</a>
           </header>
           <main className="flex flex-1 bg-[#F5F5F5] items-center justify-center text-gray-900">
             {children}
