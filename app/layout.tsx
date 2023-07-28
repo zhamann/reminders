@@ -27,7 +27,9 @@ return (
             <a className="text-xl text-gray-900 font-extrabold">Reminders</a>
           </header>
           <main className="flex flex-1 bg-[#F5F5F5] items-center justify-center text-gray-900">
-            {children}
+            <div className='flex max-w-2xl'>
+              {children}
+            </div>
           </main>
         </div>
       </body>
