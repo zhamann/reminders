@@ -46,12 +46,27 @@ const RemindersPage: React.FC = () => {
     setReminders((prevReminders) => [...prevReminders, newReminder]);
   };
 
+  const handleRemoveClick = (id: number) => {  
+    // Filter out the reminder with the specified ID to remove it
+    setReminders((prevReminders) => prevReminders.filter((reminder) => reminder.id !== id));
+  };
+
+  const handleInputChange = (id: number, newValue: string) => {
+    setReminders((prevReminders) =>
+      prevReminders.map((reminder) =>
+        reminder.id === id ? { ...reminder, text: newValue } : reminder
+      )
+    );
+  };
+
   return (
     <div className={'card border p-8 drop-shadow-md rounded mb-4 bg-white flex flex-col w-screen'}>
       <ReminderCard
         reminders={reminders}
         onReminderClick={handleReminderClick}
         onNewClick={handleNewClick}
+        onRemoveClick={handleRemoveClick}
+        onInputChange={handleInputChange}
       />
     </div>
   );
