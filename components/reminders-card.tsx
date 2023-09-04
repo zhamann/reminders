@@ -10,20 +10,28 @@ interface Reminder {
 interface ReminderCardProps {
   reminders: Reminder[];
   onReminderClick: (id: number) => void;
+  onNewClick: () => void;
 }
 
-const ReminderCard: React.FC<ReminderCardProps> = ({ reminders, onReminderClick }) => {
+const ReminderCard: React.FC<ReminderCardProps> = ({ reminders, onReminderClick, onNewClick }) => {
   const openReminders = reminders.filter((reminder) => !reminder.completed);
   const completedReminders = reminders.filter((reminder) => reminder.completed);
 
   return (
     <div>
-      <div className="mb-4">
-        <h2 className="text-xl font-semibold mb-2">Open</h2>
+      <div className="">
+        <div className='flex flex-col items-end pb-4 pr-4'>
+          <div 
+            className='text-3xl cursor-pointer'
+            onClick={() => onNewClick()}
+            >
+              +
+          </div>
+        </div>
         {openReminders.map((reminder) => (
-          <div key={reminder.id} className="flex items-center mb-2">
+          <div key={reminder.id} className="flex items-center p-4 border border-gray-200">
             <div
-              className="w-4 h-4 mr-2 border border-gray-500 rounded-full cursor-pointer"
+              className="w-4 h-4 mr-4 border border-gray-500 rounded-full cursor-pointer"
               onClick={() => onReminderClick(reminder.id)}
             >
               {reminder.completed && <div className="w-full h-full bg-blue-500 rounded-full"></div>}
@@ -31,14 +39,10 @@ const ReminderCard: React.FC<ReminderCardProps> = ({ reminders, onReminderClick 
             <span>{reminder.text}</span>
           </div>
         ))}
-      </div>
-
-      <div>
-        <h2 className="text-xl font-semibold mb-2">Completed</h2>
         {completedReminders.map((reminder) => (
-          <div key={reminder.id} className="flex items-center mb-2">
+          <div key={reminder.id} className="flex items-center p-4 border border-gray-200">
             <div
-              className="w-4 h-4 mr-2 border border-gray-500 bg-blue-500 rounded-full cursor-pointer"
+              className="w-4 h-4 mr-4 border border-gray-500 bg-blue-500 rounded-full cursor-pointer"
               onClick={() => onReminderClick(reminder.id)}
             >
               {!reminder.completed && (

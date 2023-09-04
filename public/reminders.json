@@ -1,5 +1,6 @@
 [
     { "id": 1, "text": "Buy groceries", "completed": false },
-    { "id": 2, "text": "Finish project", "completed": false }
+    { "id": 2, "text": "Finish project", "completed": false },
+    { "id": 3, "text": "Wash clothes", "completed": false }
 ]
   

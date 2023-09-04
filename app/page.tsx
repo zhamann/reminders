@@ -34,11 +34,24 @@ const RemindersPage: React.FC = () => {
     );
   };
 
+  const handleNewClick = () => {
+    // Create a new reminder with a unique ID and initial properties
+    const newReminder: Reminder = {
+      id: reminders.length + 1, // Assign a unique ID (you may need to adjust this logic as needed)
+      text: 'New Reminder', // Set the initial text for the new reminder
+      completed: false, // Set the initial completed status for the new reminder
+    };
+  
+    // Add the new reminder to the array
+    setReminders((prevReminders) => [...prevReminders, newReminder]);
+  };
+
   return (
     <div className={'card border p-8 drop-shadow-md rounded mb-4 bg-white flex flex-col w-screen'}>
       <ReminderCard
         reminders={reminders}
         onReminderClick={handleReminderClick}
+        onNewClick={handleNewClick}
       />
     </div>
   );
